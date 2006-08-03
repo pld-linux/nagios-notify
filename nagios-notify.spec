@@ -5,6 +5,7 @@ Release:	0.1
 License:	GPL v2
 Group:		Applications
 Source0:	%{name}.sh
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sysconfdir	/etc/nagios/templates
