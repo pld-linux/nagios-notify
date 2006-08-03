@@ -7,7 +7,6 @@
 # Date: 2006-08-03
 # License: Same as Nagios (GPL v2)
 #
-. ./env1.txt
 
 templatedir='/etc/nagios/templates'
 
@@ -28,7 +27,6 @@ template_subst() {
 # extract nagios version from status file
 export NAGIOS_VERSION=$(awk -F= '/version=/{print $2}' $NAGIOS_STATUSDATAFILE)
 
-tmpl="$1"
 tmpl="$templatedir/$1.tmpl"
 if [ ! -f "$tmpl" ]; then
 	echo >&2 "$0: template '$tmpl' can not be found!"
