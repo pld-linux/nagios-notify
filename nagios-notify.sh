@@ -9,6 +9,7 @@
 #
 
 templatedir='/etc/nagios/templates'
+prog="${0##*/}"
 
 # Substutute Nagios $VAR$-s (which are exported to environment by Nagios) from template.
 template_subst() {
@@ -24,12 +25,17 @@ template_subst() {
 	}' | sed -f - $tmpl
 }
 
+if [ -z "$NAGIOS_STATUSDATAFILE" ]; then
+	echo >&2 "$prog: This program must be ran from Nagios."
+	exit 1
+fi
+
 # extract nagios version from status file
 export NAGIOS_VERSION=$(awk -F= '/version=/{print $2}' $NAGIOS_STATUSDATAFILE)
 
 tmpl="$templatedir/$1.tmpl"
 if [ ! -f "$tmpl" ]; then
-	echo >&2 "$0: template '$tmpl' can not be found!"
+	echo >&2 "$prog: template '$tmpl' can not be found!"
 	exit 1
 fi
 
