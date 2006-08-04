@@ -1,11 +1,11 @@
 Summary:	Nagios Notify Script
 Name:		nagios-notify
-Version:	0.9.1
-Release:	0.1
+Version:	0.9.3
+Release:	1
 License:	GPL v2
 Group:		Applications
 Source0:	%{name}-%{version}.tar.bz2
-# Source0-md5:	9de77442cc2a101f9a3ac67f48f1c87a
+# Source0-md5:	09f7183373783312c349aa624df27795
 URL:		http://svn.pld-linux.org/cgi-bin/viewsvn/nagios-notify/
 Requires:	awk
 Requires:	nagios-common
@@ -13,7 +13,7 @@ Requires:	sed
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_sysconfdir	/etc/nagios/templates
+%define		_sysconfdir	/etc/nagios
 
 %description
 nagios-notify is template based notify script for Nagios.
@@ -32,5 +32,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %dir %{_sysconfdir}
-%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/*
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/templates/*
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/plugins/*
 %attr(755,root,root) %{_sbindir}/nagios-notify
