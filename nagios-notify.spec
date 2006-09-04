@@ -2,7 +2,7 @@ Summary:	Nagios Notify Script
 Summary(pl):	Skrypt powiadamiaj±cy dla Nagiosa
 Name:		nagios-notify
 Version:	0.9.3
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications
 Source0:	%{name}-%{version}.tar.bz2
