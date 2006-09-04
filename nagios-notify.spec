@@ -1,4 +1,5 @@
 Summary:	Nagios Notify Script
+Summary(pl):	Skrypt powiadamiaj±cy dla Nagiosa
 Name:		nagios-notify
 Version:	0.9.3
 Release:	1
@@ -18,11 +19,16 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 nagios-notify is template based notify script for Nagios.
 
+%description -l pl
+nagios-notify to oparty na szablonach skrypt powiadamiaj±cy dla
+Nagiosa.
+
 %prep
 %setup -q
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
