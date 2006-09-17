@@ -2,7 +2,7 @@ Summary:	Nagios Notify Script
 Summary(pl):	Skrypt powiadamiaj±cy dla Nagiosa
 Name:		nagios-notify
 Version:	0.9.3
-Release:	2
+Release:	3
 License:	GPL v2
 Group:		Applications
 Source0:	%{name}-%{version}.tar.bz2
@@ -37,7 +37,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%dir %{_sysconfdir}
+%dir %{_sysconfdir}/templates
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/templates/*
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/plugins/*
 %attr(755,root,root) %{_sbindir}/nagios-notify
