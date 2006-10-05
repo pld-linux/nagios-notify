@@ -7,7 +7,7 @@ License:	GPL v2
 Group:		Applications
 Source0:	%{name}-%{version}.tar.bz2
 # Source0-md5:	09f7183373783312c349aa624df27795
-URL:		http://svn.pld-linux.org/cgi-bin/viewsvn/nagios-notify/
+URL:		http://glen.alkohol.ee/nagios-notify/
 Requires:	awk
 Requires:	nagios-common
 Requires:	sed
