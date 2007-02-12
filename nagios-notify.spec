@@ -1,5 +1,5 @@
 Summary:	Nagios Notify Script
-Summary(pl):	Skrypt powiadamiaj±cy dla Nagiosa
+Summary(pl.UTF-8):   Skrypt powiadamiajÄ…cy dla Nagiosa
 Name:		nagios-notify
 Version:	0.9.5
 Release:	1
@@ -19,8 +19,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 nagios-notify is template based notify script for Nagios.
 
-%description -l pl
-nagios-notify to oparty na szablonach skrypt powiadamiaj±cy dla
+%description -l pl.UTF-8
+nagios-notify to oparty na szablonach skrypt powiadamiajÄ…cy dla
 Nagiosa.
 
 %prep
