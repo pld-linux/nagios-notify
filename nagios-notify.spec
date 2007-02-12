@@ -1,5 +1,5 @@
 Summary:	Nagios Notify Script
-Summary(pl.UTF-8):   Skrypt powiadamiający dla Nagiosa
+Summary(pl.UTF-8):	Skrypt powiadamiający dla Nagiosa
 Name:		nagios-notify
 Version:	0.9.5
 Release:	1
