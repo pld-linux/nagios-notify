@@ -1,12 +1,15 @@
+# TODO:
+# - move script to _libdir somewhere
 Summary:	Nagios Notify Script
 Summary(pl.UTF-8):	Skrypt powiadamiający dla Nagiosa
 Name:		nagios-notify
 Version:	0.9.5
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications
 Source0:	%{name}-%{version}.tar.bz2
 # Source0-md5:	523e7ab6209b7ef5b386670cb7c1f08e
+Patch0:		%{name}-statusfile.patch
 URL:		http://glen.alkohol.ee/nagios-notify/
 Requires:	awk
 Requires:	nagios-common
@@ -25,6 +28,7 @@ Nagiosa.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %install
 rm -rf $RPM_BUILD_ROOT
