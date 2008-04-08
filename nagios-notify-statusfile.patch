@@ -1,4 +1,3 @@
-diff -urN nagios-notify-0.9.5.org/nagios-notify nagios-notify-0.9.5/nagios-notify
 --- nagios-notify-0.9.5.org/nagios-notify	2006-08-04 03:11:30.000000000 +0200
 +++ nagios-notify-0.9.5/nagios-notify	2008-04-08 11:41:08.871305868 +0200
 @@ -28,7 +28,10 @@
@@ -7,7 +6,7 @@ diff -urN nagios-notify-0.9.5.org/nagios-notify nagios-notify-0.9.5/nagios-notif
  
 -if [ -z "$NAGIOS_STATUSDATAFILE" ]; then
 +
-+if [ "${NAGIOS_STATUSDATAFILE+X}" = X ]; then
++if [ "${NAGIOS_STATUSDATAFILE+set}" = set ]; then
 +	NAGIOS_STATUSDATAFILE=${NAGIOS_STATUSDATAFILE:-/var/lib/nagios/status.dat}
 +else
  	echo >&2 "$prog: This program must be ran from Nagios."
