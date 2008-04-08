@@ -1,0 +1,16 @@
+diff -urN nagios-notify-0.9.5.org/nagios-notify nagios-notify-0.9.5/nagios-notify
+--- nagios-notify-0.9.5.org/nagios-notify	2006-08-04 03:11:30.000000000 +0200
++++ nagios-notify-0.9.5/nagios-notify	2008-04-08 11:22:51.505512189 +0200
+@@ -28,8 +28,10 @@
+ 	}' | sed -f - $tmpl
+ }
+ 
+-if [ -z "$NAGIOS_STATUSDATAFILE" ]; then
+-	echo >&2 "$prog: This program must be ran from Nagios."
++NAGIOS_STATUSDATAFILE=${NAGIOS_STATUSDATAFILE:-/var/lib/nagios/status.dat}
++
++if [ -f "$NAGIOS_STATUSDATAFILE" ]; then
++	echo >&2 "$prog: Nagios status.dat file not found."
+ 	exit 1
+ fi
+ 
