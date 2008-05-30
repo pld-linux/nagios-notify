@@ -20,6 +20,17 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 nagios-notify is template based notify script for Nagios.
 
+You should use this script because:
+- the templates are easily edited in text editor
+- You won't be worried about if the command definition contains shell
+  syntax errors (which Nagios happlily discards without any trace in
+  logs :/)
+- you can change templates without restarting Nagios
+- with advanced templates you can send richtext (even images!) over
+  jabber if you use nagios-notify-jabber
+- minimal dependency (just coreutils, awk and sed that you most likely
+  already have installed)
+
 %description -l pl.UTF-8
 nagios-notify to oparty na szablonach skrypt powiadamiający dla
 Nagiosa.
