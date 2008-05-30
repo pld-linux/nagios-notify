@@ -10,7 +10,6 @@ Source0:	%{name}-%{version}.tar.bz2
 URL:		http://glen.alkohol.ee/nagios-notify/
 Requires:	awk
 Requires:	nagios-common
-Requires:	sed
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -28,7 +27,7 @@ You should use this script because:
 - you can change templates without restarting Nagios
 - with advanced templates you can send richtext (even images!) over
   jabber if you use nagios-notify-jabber
-- minimal dependency (just coreutils, awk and sed that you most likely
+- minimal dependency (just coreutils and awk that you most likely
   already have installed)
 
 %description -l pl.UTF-8
@@ -44,7 +43,7 @@ Powody, dla których dobrze jest używać tego skryptu:
 - przy użyciu zaawansowanych szablonów można wysyłać tekst
   wzbogacony (nawet z obrazkami) przez jabbera w przypadku używania
   pakietu nagios-notify-jabber
-- minimalne zależności (tylko coreutils, awk i sed, które zwykle i tak
+- minimalne zależności (tylko coreutils i awk, które zwykle i tak
   są zainstalowane)
 
 %prep
