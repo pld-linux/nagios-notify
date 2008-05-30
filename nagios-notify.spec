@@ -22,8 +22,8 @@ nagios-notify is template based notify script for Nagios.
 
 You should use this script because:
 - the templates are easily edited in text editor
-- You won't be worried about if the command definition contains shell
-  syntax errors (which Nagios happlily discards without any trace in
+- you won't be worried about if the command definition contains shell
+  syntax errors (which Nagios happily discards without any trace in
   logs :/)
 - you can change templates without restarting Nagios
 - with advanced templates you can send richtext (even images!) over
@@ -34,6 +34,18 @@ You should use this script because:
 %description -l pl.UTF-8
 nagios-notify to oparty na szablonach skrypt powiadamiający dla
 Nagiosa.
+
+Powody, dla których dobrze jest używać tego skryptu:
+- szablony można łatwo modyfikować w edytorze tekstu,
+- nie trzeba się zbytnio martwić jeśli definicje poleceń zawierają
+  błędy składni powłoki (które Nagios ucina bez żadnego śladu w
+  logach)
+- można zmieniać szablony bez restartu Nagiosa
+- przy użyciu zaawansowanych szablonów można wysyłać tekst
+  wzbogacony (nawet z obrazkami) przez jabbera w przypadku używania
+  pakietu nagios-notify-jabber
+- minimalne zależności (tylko coreutils, awk i sed, które zwykle i tak
+  są zainstalowane)
 
 %prep
 %setup -q
