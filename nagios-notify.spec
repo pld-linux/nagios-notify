@@ -2,7 +2,7 @@ Summary:	Nagios Notify Script
 Summary(pl.UTF-8):	Skrypt powiadamiający dla Nagiosa
 Name:		nagios-notify
 Version:	0.10
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications
 Source0:	%{name}-%{version}.tar.bz2
@@ -59,7 +59,7 @@ rm -rf $RPM_BUILD_ROOT
 rm -rf $RPM_BUILD_ROOT
 
 %triggerpostun -- %{name} < 0.10
-%{__sed} -i -e 's,/usr/sbin/%{name},%{_sbindir}/%{name},g' %{_sysconfdir}/plugins/%{name}.cfg
+%{__sed} -i -e 's,/usr/sbin/%{name},%{_sbindir}/%{name},' %{_sysconfdir}/plugins/%{name}.cfg
 
 %files
 %defattr(644,root,root,755)
