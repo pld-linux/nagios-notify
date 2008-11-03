@@ -87,6 +87,16 @@ for a in eggdrop email jabber-embedimage jabber-richtext jabber sms; do
 		cp -a $f $o
 	fi
 done
+%banner -e %{name}-0.12 <<'EOF'
+Templates have been renamed to follow Nagios 3.0 naming.
+
+They have been recovered by rpm trigger, but if you want to use new style
+naming these commands might help you out quickly:
+
+# grep -r host-notify-by- /etc/nagios -l | xargs sed -i -e 's,host-notify-by-,notify-host-by-,g'
+# grep -r notify-by- /etc/nagios -l | xargs sed -i -e 's,notify-by-,notify-service-by-,g'
+
+EOF
 
 %files
 %defattr(644,root,root,755)
