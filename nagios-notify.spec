@@ -1,7 +1,7 @@
 Summary:	Nagios Notify Script
 Summary(pl.UTF-8):	Skrypt powiadamiający dla Nagiosa
 Name:		nagios-notify
-Version:	0.11
+Version:	0.12
 Release:	1
 License:	GPL v2
 Group:		Applications
@@ -63,6 +63,30 @@ rm -rf $RPM_BUILD_ROOT
 if [ -f /etc/rc.d/init.d/nagios ]; then
 	%service -q nagios reload
 fi
+
+%triggerpostun -- %{name} < 0.12-0.7
+# recover renamed configs
+for a in %{_sysconfdir}/templates/*.rpmsave; do
+	[ -f $a ] || continue
+	f=${a%%.rpmsave}
+	[ -f $f ] && cp -f $f{,.rpmnew}
+	mv -f $f{.rpmsave,}
+done
+# copy from new files if originals weren't modified but removed by upgrade
+for a in eggdrop jabber sms; do
+	o=%{_sysconfdir}/templates/host-notify-by-$a.tmpl
+	f=%{_sysconfdir}/templates/notify-host-by-$a.tmpl
+	if [ ! -f $o ]; then
+		cp -a $f $o
+	fi
+done
+for a in eggdrop email jabber-embedimage jabber-richtext jabber sms; do
+	o=%{_sysconfdir}/templates/notify-by-$a.tmpl
+	f=%{_sysconfdir}/templates/notify-service-by-$a.tmpl
+	if [ ! -f $o ]; then
+		cp -a $f $o
+	fi
+done
 
 %files
 %defattr(644,root,root,755)
