@@ -6,7 +6,7 @@ Release:	1
 License:	GPL v2
 Group:		Applications
 Source0:	%{name}-%{version}.tar.bz2
-# Source0-md5:	8a77b70ad8bd47183e24f14c5b0c97ac
+# Source0-md5:	84ce191cf59e7831296c0bffa909c94e
 URL:		http://glen.alkohol.ee/nagios-notify/
 Requires:	awk
 Requires:	nagios-common
