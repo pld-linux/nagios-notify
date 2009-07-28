@@ -1,12 +1,12 @@
 Summary:	Nagios Notify Script
 Summary(pl.UTF-8):	Skrypt powiadamiający dla Nagiosa
 Name:		nagios-notify
-Version:	0.12
+Version:	0.13
 Release:	1
 License:	GPL v2
 Group:		Applications
 Source0:	%{name}-%{version}.tar.bz2
-# Source0-md5:	84ce191cf59e7831296c0bffa909c94e
+# Source0-md5:	8e3e5adf7fdbb703d7e9bc5442562ca7
 URL:		http://glen.alkohol.ee/nagios-notify/
 Requires:	awk
 Requires:	nagios-common
