@@ -2,14 +2,19 @@ Summary:	Nagios Notify Script
 Summary(pl.UTF-8):	Skrypt powiadamiający dla Nagiosa
 Name:		nagios-notify
 Version:	0.13
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications
 Source0:	%{name}-%{version}.tar.bz2
 # Source0-md5:	8e3e5adf7fdbb703d7e9bc5442562ca7
 URL:		http://glen.alkohol.ee/nagios-notify/
+Requires:	/usr/lib/sendmail
 Requires:	awk
 Requires:	nagios-common
+# notify via jabber
+Suggests:	nagios-alert-jabber
+# notify to eggdrop bot (irc)
+Suggests:	t0xirc
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
