@@ -2,15 +2,16 @@ Summary:	Nagios Notify Script
 Summary(pl.UTF-8):	Skrypt powiadamiający dla Nagiosa
 Name:		nagios-notify
 Version:	0.13
-Release:	2
+Release:	3
 License:	GPL v2
 Group:		Applications
 Source0:	%{name}-%{version}.tar.bz2
 # Source0-md5:	8e3e5adf7fdbb703d7e9bc5442562ca7
 URL:		http://glen.alkohol.ee/nagios-notify/
-Requires:	/usr/lib/sendmail
 Requires:	awk
 Requires:	nagios-common
+# notify via emails
+Suggests:	/usr/lib/sendmail
 # notify via jabber
 Suggests:	nagios-alert-jabber
 # notify to eggdrop bot (irc)
@@ -27,8 +28,8 @@ nagios-notify is template based notify script for Nagios.
 You should use this script because:
 - the templates are easily edited in text editor
 - you won't be worried about if the command definition contains shell
-  syntax errors (which Nagios happily discards without any trace in
-  logs :/)
+  syntax errors (which Nagios happily discards without any trace in logs
+  :/)
 - you can change templates without restarting Nagios
 - with advanced templates you can send richtext (even images!) over
   jabber if you use nagios-notify-jabber
@@ -42,14 +43,13 @@ Nagiosa.
 Powody, dla których dobrze jest używać tego skryptu:
 - szablony można łatwo modyfikować w edytorze tekstu,
 - nie trzeba się zbytnio martwić jeśli definicje poleceń zawierają
-  błędy składni powłoki (które Nagios ucina bez żadnego śladu w
-  logach)
+  błędy składni powłoki (które Nagios ucina bez żadnego śladu w logach)
 - można zmieniać szablony bez restartu Nagiosa
-- przy użyciu zaawansowanych szablonów można wysyłać tekst
-  wzbogacony (nawet z obrazkami) przez jabbera w przypadku używania
-  pakietu nagios-notify-jabber
-- minimalne zależności (tylko coreutils i awk, które zwykle i tak
-  są zainstalowane)
+- przy użyciu zaawansowanych szablonów można wysyłać tekst wzbogacony
+  (nawet z obrazkami) przez jabbera w przypadku używania pakietu
+  nagios-notify-jabber
+- minimalne zależności (tylko coreutils i awk, które zwykle i tak są
+  zainstalowane)
 
 %prep
 %setup -q
