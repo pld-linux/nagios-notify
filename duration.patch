@@ -1,0 +1,20 @@
+diff -urN nagios-notify-0.14.org/templates/notify-host-by-email.tmpl nagios-notify-0.14/templates/notify-host-by-email.tmpl
+--- nagios-notify-0.14.org/templates/notify-host-by-email.tmpl	2018-02-21 20:49:01.969994349 +0100
++++ nagios-notify-0.14/templates/notify-host-by-email.tmpl	2018-02-21 20:55:06.047582770 +0100
+@@ -14,4 +14,5 @@
+ Address: $HOSTADDRESS$
+ Info: $HOSTOUTPUT$
+ 
++Duration: $SERVICEDURATION$
+ Date/Time: $LONGDATETIME$
+diff -urN nagios-notify-0.14.org/templates/notify-service-by-email.tmpl nagios-notify-0.14/templates/notify-service-by-email.tmpl
+--- nagios-notify-0.14.org/templates/notify-service-by-email.tmpl	2018-02-21 20:49:19.157176605 +0100
++++ nagios-notify-0.14/templates/notify-service-by-email.tmpl	2018-02-21 20:55:16.601232698 +0100
+@@ -15,6 +15,7 @@
+ Address: $HOSTADDRESS$
+ State: $SERVICESTATE$
+ 
++Duration: $SERVICEDURATION$
+ Date/Time: $LONGDATETIME$
+ 
+ Additional Info:
