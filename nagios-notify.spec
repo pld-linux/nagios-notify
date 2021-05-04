@@ -9,6 +9,7 @@ Source0:	%{name}-%{version}.tar.bz2
 # Source0-md5:	47c06d14e2944f222fe08298a62ef607
 Patch0:		headers.patch
 Patch1:		duration.patch
+Patch2:		off-by.patch
 URL:		http://glen.alkohol.ee/nagios-notify/
 Requires:	awk
 Requires:	nagios-common
@@ -57,6 +58,7 @@ Powody, dla których dobrze jest używać tego skryptu:
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %install
 rm -rf $RPM_BUILD_ROOT
