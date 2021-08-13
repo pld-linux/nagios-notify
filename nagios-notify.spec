@@ -1,16 +1,14 @@
 Summary:	Nagios Notify Script
 Summary(pl.UTF-8):	Skrypt powiadamiający dla Nagiosa
 Name:		nagios-notify
-Version:	0.14
-Release:	4
+Version:	0.15.0
+Release:	1
 License:	GPL v2
 Group:		Applications
-Source0:	%{name}-%{version}.tar.bz2
-# Source0-md5:	47c06d14e2944f222fe08298a62ef607
-Patch0:		headers.patch
-Patch1:		duration.patch
-Patch2:		off-by.patch
-URL:		http://glen.alkohol.ee/nagios-notify/
+#Source0:	%{name}-%{version}.tar.xz
+Source0:	https://github.com/glensc/nagios-notify/releases/download/%{version}/%{name}-%{version}.tar.xz
+# Source0-md5:	f42d34feb8355cfdd0c629bdb6ef98f4
+URL:		https://github.com/glensc/nagios-notify
 Requires:	awk
 Requires:	nagios-common
 # notify via emails
@@ -56,13 +54,9 @@ Powody, dla których dobrze jest używać tego skryptu:
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
@@ -73,6 +67,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc ChangeLog
 %dir %{_sysconfdir}/templates
-%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/templates/*
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/templates/*.tmpl
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/plugins/%{name}.cfg
 %attr(755,root,root) %{_sbindir}/nagios-notify
