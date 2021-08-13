@@ -69,46 +69,6 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%triggerpostun -- %{name} < 0.10
-%{__sed} -i -e 's,/usr/sbin/%{name},%{_sbindir}/%{name},' %{_sysconfdir}/plugins/%{name}.cfg
-if [ -f /etc/rc.d/init.d/nagios ]; then
-	%service -q nagios reload
-fi
-
-%triggerpostun -- %{name} < 0.12-0.7
-# recover renamed configs
-for a in %{_sysconfdir}/templates/*.rpmsave; do
-	[ -f $a ] || continue
-	f=${a%%.rpmsave}
-	[ -f $f ] && cp -f $f{,.rpmnew}
-	mv -f $f{.rpmsave,}
-done
-# copy from new files if originals weren't modified but removed by upgrade
-for a in eggdrop jabber sms; do
-	o=%{_sysconfdir}/templates/host-notify-by-$a.tmpl
-	f=%{_sysconfdir}/templates/notify-host-by-$a.tmpl
-	if [ ! -f $o ]; then
-		cp -a $f $o
-	fi
-done
-for a in eggdrop email jabber-embedimage jabber-richtext jabber sms; do
-	o=%{_sysconfdir}/templates/notify-by-$a.tmpl
-	f=%{_sysconfdir}/templates/notify-service-by-$a.tmpl
-	if [ ! -f $o ]; then
-		cp -a $f $o
-	fi
-done
-%banner -e %{name}-0.12 <<'EOF'
-Templates have been renamed to follow Nagios 3.0 naming.
-
-They have been recovered by rpm trigger, but if you want to use new style
-naming these commands might help you out quickly:
-
-# grep -r host-notify-by- /etc/nagios -l | xargs sed -i -e 's,host-notify-by-,notify-host-by-,g'
-# grep -r notify-by- /etc/nagios -l | xargs sed -i -e 's,notify-by-,notify-service-by-,g'
-
-EOF
-
 %files
 %defattr(644,root,root,755)
 %doc ChangeLog
