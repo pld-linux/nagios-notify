@@ -1,16 +1,16 @@
 Summary:	Nagios Notify Script
 Summary(pl.UTF-8):	Skrypt powiadamiający dla Nagiosa
 Name:		nagios-notify
-Version:	0.15.0
+Version:	0.16.0
 Release:	1
 License:	GPL v2
 Group:		Applications
-#Source0:	%{name}-%{version}.tar.xz
 Source0:	https://github.com/glensc/nagios-notify/releases/download/%{version}/%{name}-%{version}.tar.xz
-# Source0-md5:	f42d34feb8355cfdd0c629bdb6ef98f4
+# Source0-md5:	4c714c5ff0a1dad0df5f0b810bb76942
 URL:		https://github.com/glensc/nagios-notify
-Requires:	awk
 Requires:	nagios-common
+Requires:	python3
+Requires:	python3-modules
 # notify via emails
 Suggests:	/usr/lib/sendmail
 # notify via jabber
@@ -54,6 +54,7 @@ Powody, dla których dobrze jest używać tego skryptu:
 
 %prep
 %setup -q
+%{__sed} -i -e '1s,^#!.*python3,#!%{__python3},' %{name}.py
 
 %install
 rm -rf $RPM_BUILD_ROOT
