@@ -10,6 +10,7 @@ Source0:	https://github.com/glensc/nagios-notify/releases/download/%{version}/%{
 URL:		https://github.com/glensc/nagios-notify
 Requires:	nagios-common
 Requires:	python3
+Requires:	python3-jinja2
 Requires:	python3-modules
 # notify via emails
 Suggests:	/usr/lib/sendmail
