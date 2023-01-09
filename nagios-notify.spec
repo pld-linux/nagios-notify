@@ -1,12 +1,12 @@
 Summary:	Nagios Notify Script
 Summary(pl.UTF-8):	Skrypt powiadamiający dla Nagiosa
 Name:		nagios-notify
-Version:	0.16.0
+Version:	0.16.1
 Release:	1
 License:	GPL v2
 Group:		Applications
 Source0:	https://github.com/glensc/nagios-notify/releases/download/%{version}/%{name}-%{version}.tar.xz
-# Source0-md5:	4c714c5ff0a1dad0df5f0b810bb76942
+# Source0-md5:	d010b82b0038c6496bfbd46413561d9a
 URL:		https://github.com/glensc/nagios-notify
 Requires:	nagios-common
 Requires:	python3
